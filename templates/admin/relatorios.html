@@ -1,0 +1,122 @@
+{% extends "operadormain.html" %}
+{% block maincss %}
+
+
+<link rel="stylesheet" href="../static/css/pages/relatorios.css">
+
+{% endblock %}
+
+
+
+
+{% block main %}
+<div class="container">
+<h3 id="identifica">Usuário(a)...:{{ usuario }} </h3>
+
+
+</div>
+
+
+  <div class="row">
+
+<div class="container">
+
+<div class="col col-desktop-12 " align="center">
+<h3>Relatórios</h3>
+<p>Digite o nome para buscar...</p>
+</div>
+
+  <div class="col col-desktop-12 " align="center">
+<div class="row">
+
+
+    <form  action="{{ url_for('relatorioss' , usuario = usuario)}}" method="POST">
+      <input type="text" name="name" placeholder="Nome do usuário">
+        <input type="submit" value="Buscar" class="btn">
+    </form>
+
+
+        <table id="customers">
+          <tr>
+            <th>Autor</th>
+            <th>Placa</th>
+            <th>Data</th>
+            <th>Gasolina $</th>
+            <th>Revisão $</th>
+            <th>Status</th>
+            <th>Gerar Excel</th>
+
+          </tr>
+          {% for item in solicita %}
+          <tr>
+            <td>{{ item.author}}</td>
+            <td>{{ item.placa }}</td>
+            <td>{{ item.data }}</td>
+            <td>{{ item.dgasolina }}</td>
+            <td>{{ item.drevisao }}</td>
+            <td>{{ item.status }}</td>
+            <td>
+                  <form method="POST" action={{url_for('excel', usuario= usuario)}} class="form">
+
+
+                    <input type="hidden" value = "{{ item.author }}" name="author"/>
+                    <input type="hidden" value = "{{ item.placa }}" name="placa"/>
+                    <input type="hidden" value = "{{ item.data}}" name="data"/>
+                    <input type="hidden" value = "{{  item.dgasolina }}" name="dgasolina"/>
+                    <input type="hidden" value = "{{ item.drevisao }}" name="drevisao"/>
+                    <input type="hidden" value = "{{ item.kmfinal }}" name="kmfinal"/>
+                    <input type="hidden" value = "{{ item.descricao }}" name="descricao"/>
+
+                    <input type="submit" value="Excel" class="btn2">
+
+
+                  </form>
+
+
+
+
+            </td>
+
+          </tr>
+          {% endfor %}
+
+
+
+
+        </table>
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+{% block main2 %}
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+{% endblock %}

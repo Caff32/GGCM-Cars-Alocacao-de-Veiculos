@@ -1,0 +1,67 @@
+{% extends "usermain.html" %}
+
+
+{% block maincss %}
+
+
+<link rel="stylesheet" href="../static/css/pages/solicita.css" >
+
+{% endblock %}
+
+{% block main2 %}
+
+<div class="container">
+  <div class="row">
+    <div class="col col-desktop-12 title">
+      <h2>Solicitações</h2>
+
+      <h3>Selecione o Carro </h3>
+    </div>
+  </div>
+
+
+<table id="customers">
+  <tr>
+    <th>Placa</th>
+    <th>Modelo</th>
+    <th>Quilometragem</th>
+    <th>Km/litro</th>
+    <th>Combustível</th>
+    <th>Revisao</th>
+    <th>Confirmar ?</th>
+  </tr>
+  {% for veiculo in lista %}
+  <tr>
+    <td>{{ veiculo._id }}</td>
+    <td>{{ veiculo.modelo }}</td>
+    <td>{{ veiculo.quilometragem }}</td>
+    <td>{{ veiculo.kmlitro }}</td>
+    <td>{{ veiculo.tipocomb }}</td>
+    <td>{{ veiculo.revisao }}</td>
+<td>
+    <form  action="{{ url_for('newsolicita' , car = veiculo._id, usuario = usuario  )}}" method="GET">
+        <input type="submit" value="Add" class="btn-nav">
+    </form>
+
+  </td>
+
+  </tr>
+  {% endfor %}
+</div>
+
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

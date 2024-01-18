@@ -1,0 +1,84 @@
+{% extends "usermain.html" %}
+
+
+{% block maincss %}
+
+
+<link rel="stylesheet" href="../static/css/pages/solicita.css" >
+
+{% endblock %}
+
+{% block main2 %}
+
+<div class="container">
+  <div class="row">
+    <div class="col col-desktop-12 title">
+      <h2>Relatorio </h2>
+
+      <h3></h3>
+    </div>
+  </div>
+
+
+
+
+  <div class="container">
+  <div class="row">
+
+
+
+  <div class="col col-desktop-12" table>
+
+    <table id="customers">
+      <tr>
+        <th>Placa</th>
+        <th>Destino</th>
+        <th>Data Inicial</th>
+        <th>Data Final</th>
+        <th>Status</th>
+        <th>Relatar</th>
+      </tr>
+      {% for item in solicita %}
+      <tr>
+        <td>{{ item.placa }}</td>
+        <td>{{ item.destino }}</td>
+        <td>{{ item.datainicial }}</td>
+        <td>{{ item.datafinal }}</td>
+        <td>{{ item.status }}</td>
+        <td>
+            <form  action="{{ url_for('relatar' , idi = item._id, usuario = usuario, placa = item.placa  )}}" method="GET">
+
+                  <input type="submit" name="" value="Novo">
+            </form>
+
+        </td>
+
+      </tr>
+      {% endfor %}
+
+
+
+    </table>
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

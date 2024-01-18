@@ -1,0 +1,173 @@
+{% extends "main.html" %}
+
+{% block maincss %}
+
+
+<link rel="stylesheet" href="../static/css/pages/operador.css">
+
+{% endblock %}
+
+{% block nav %}
+<div class="col col-desktop-9 col-6" >
+  <nav>
+    <ul>
+      <li><a href={{ url_for('operador', usuario = usuario )}}>Home</a></li>
+      <li><a href={{ url_for('cars', usuario = usuario)}}>Carros</a></li>
+      <li><a href={{ url_for('solicitabusca', usuario = usuario)}}>Solicitações</a></li>
+      <li><a href={{ url_for('buscarelata', usuario = usuario)}}>Parecer Relatório</a></li>
+      <li><a href={{ url_for('relatorioss', usuario = usuario)}}>Relatório</a></li>
+      <li><a href={{ url_for('logout')}}>Logout</a></li>
+    </ul>
+  </nav>
+{% endblock %}
+
+{% block main %}
+
+
+<div class="container">
+<div class="row">
+
+
+<h3 id="identifica">Usuário(a)...: {{ usuario }} </h3>
+</div>
+</div>
+
+
+
+{% block main2 %}
+
+
+
+
+
+
+
+<div class="container">
+
+  <h3 >Aguardando Aprovação </h3>
+<div class="row">
+
+
+
+<div class="col col-desktop-12" table>
+
+  <table id="customers">
+    <tr>
+      <th>Placa</th>
+      <th>Destino</th>
+      <th>Data Inicial</th>
+      <th>Data Final</th>
+      <th>Status</th>
+    </tr>
+    {% for item in solicita %}
+    <tr>
+      <td>{{ item.placa }}</td>
+      <td>{{ item.destino }}</td>
+      <td>{{ item.datainicial }}</td>
+      <td>{{ item.datafinal }}</td>
+      <td>{{ item.status }}</td>
+    </tr>
+    {% endfor %}
+
+
+
+  </table>
+
+
+
+
+
+
+
+</div>
+</div>
+
+
+<div class="container">
+
+  <h3 >Aguardando Envio do Relatório </h3>
+<div class="row">
+
+
+
+<div class="col col-desktop-12" table>
+
+  <table id="customers">
+    <tr>
+      <th>Autor</th>
+      <th>Placa</th>
+      <th>Destino</th>
+      <th>Data Inicial</th>
+      <th>Data Final</th>
+      <th>Relatorio</th>
+    </tr>
+    {% for item in solicita2 %}
+    <tr>
+      <td> {{ item.author }}</td>
+      <td>{{ item.placa }}</td>
+      <td>{{ item.destino }}</td>
+      <td>{{ item.datainicial }}</td>
+      <td>{{ item.datafinal }}</td>
+      <td>{{ item.relatorio }}</td>
+    </tr>
+    {% endfor %}
+
+
+
+  </table>
+
+
+
+
+
+
+
+</div>
+</div>
+
+
+<div class="container">
+
+  <h3 >Relatórios Aguardando sua Aprovação </h3>
+<div class="row">
+
+
+
+<div class="col col-desktop-12" table>
+
+  <table id="customers">
+    <tr>
+      <th>Autor</th>
+      <th>Placa</th>
+      <th>Destino</th>
+      <th>Data Inicial</th>
+      <th>Data Final</th>
+      <th>Relatorio</th>
+    </tr>
+    {% for item in solicita3 %}
+    <tr>
+      <td> {{ item.author }}</td>
+      <td>{{ item.placa }}</td>
+      <td>{{ item.destino }}</td>
+      <td>{{ item.datainicial }}</td>
+      <td>{{ item.datafinal }}</td>
+      <td>{{ item.relatorio }}</td>
+    </tr>
+    {% endfor %}
+
+
+
+  </table>
+
+
+
+
+
+
+
+</div>
+</div>
+
+{% endblock %}
+
+{% endblock %}

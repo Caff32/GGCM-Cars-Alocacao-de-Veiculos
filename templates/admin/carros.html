@@ -1,0 +1,121 @@
+{% extends "operadormain.html" %}
+
+
+{% block maincss %}
+
+
+<link rel="stylesheet" href="../static/css/pages/cars.css">
+
+{% endblock %}
+
+{% block main2 %}
+
+<div class="container">
+  <div class="row">
+    <div class="col col-desktop-12 title">
+      <h2>Gerencie seus carros </h2>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row ">
+    <div class="col col-desktop-6 " align="center">
+
+    <form method="POST" action="/carros/add" class="form">
+  <div class="row ">
+            <input type="text" class="form-control" placeholder="Placa" name="placa" />
+            </div>
+
+  <div class="row ">
+            <input type="text" class="form-control" placeholder="Chassi" name="chassi" />
+            </div>
+
+            <div class="row ">
+              <input type="text" class="form-control" placeholder="Modelo" name="modelo"/>
+            </div>
+
+            <div class="row ">
+              <input type="text" class="form-control" placeholder="Quilometragem" name="quilometragem"/>
+            </div>
+
+            <div class="row ">
+              <input type="text" class="form-control" placeholder="Tipo de Combustível" name="tipocomb"/>
+            </div>
+
+            <div class="row ">
+              <input type="text" class="form-control" placeholder="Km/Litro" name="kmlitro"/>
+            </div>
+
+            <div class="row ">
+              <input type="date" class="form-control" placeholder="Ultima Revisao" name="revisao"/>
+            </div>
+
+            <input type="hidden" value = "{{ usuario }}" name="author"/>
+            <div class="row ">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+
+    </form>
+</div>
+
+
+<div class="col col-desktop-6" table>
+
+  <table id="customers">
+    <tr>
+      <th>Placa</th>
+      <th>Modelo</th>
+      <th>Ações</th>
+    </tr>
+    {% for veiculo in lista %}
+    <tr>
+      <td>{{ veiculo._id }}</td>
+      <td>{{ veiculo.modelo }}</td>
+        <td>
+
+          <form  action="{{ url_for('caredit' , idi = veiculo._id )}}" method="get">
+              <input type="submit" value="Edit" class="btn-nav">
+
+          </form>
+          <form  action="{{ url_for('carremove' , idi = veiculo._id )}}" method="post">
+              <input type="submit" value="Del" class="btn-nav">
+          </form>
+
+        </td>
+
+    </tr>
+    {% endfor %}
+
+
+
+  </table>
+
+
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}

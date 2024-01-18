@@ -1,0 +1,104 @@
+{% extends "usermain.html" %}
+
+
+{% block maincss %}
+
+<link rel="stylesheet" href="../static/css/pages/relatorio.css" >
+{% endblock %}
+
+{% block main2 %}
+
+<div class="container">
+  <div class="row">
+    <div class="col col-desktop-12 title">
+      <h2>Relatório de Viagem</h2>
+
+      <h3>Peencha o Formulário </h3>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row ">
+    <div class="col col-desktop-12 " align="center">
+
+      <div class="row ">
+        <p>Usuário:</p>
+        <input type="text" name="author" value={{ usuario }} disabled>
+
+      </div>
+
+      <div class="row ">
+        <p>Placa:</p>
+        <input type="text" name="placa" value={{ placa }} disabled>
+
+      </div>
+
+      <div class="row ">
+        <p>Data:</p>
+        <input type="text" name="data" value={{ data }} disabled>
+
+      </div>
+
+
+    <form method="POST" action={{ url_for('relatar' , idi = idi, usuario = usuario, placa = placa ) }} >
+
+          <input type="hidden" value = "{{ idi }}" name="idrequisicao"/>
+
+
+            <input type="hidden" name="author" value={{ usuario }} >
+
+            <input type="hidden" name="placa" value={{ placa }} >
+
+
+
+            <input type="hidden" name="data" value={{ data }} >
+
+
+
+
+
+            <div class="row ">
+              <p>Gasolina</p>
+            <input type="number" class="form-control" value="0" name="dgasolina" />
+            </div>
+
+            <div class="row ">
+              <p>Revisao</p>
+              <input type="number" class="form-control" name="drevisao" value="0"/>
+            </div>
+
+            <div class="row ">
+              <p>Descrição das despesas</p>
+            <textarea name="descricao" cols="70" id="descreva" placeholder="Escreva aqui onde e porque foi necessário os gastos durante a viagem"></textarea>
+            </div>
+
+            <div class="row ">
+              <p>Km Final</p>
+              <input type="number" class="form-control" name="kmfinal" value="0" placeholder="Km final "/>
+            </div>
+
+
+
+
+
+            <div class="row ">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "admin/carros.html" %}
+
+{% block main2 %}
+
+<div class="container">
+  <div class="row">
+    <div class="col col-desktop-12 title">
+      <h2>Gerencie seus carros {{ usuario }}</h2>
+      <h5>Você está alterando o carro: {{ car._id }}</h5>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row ">
+    <div class="col col-desktop-12 " align="center">
+
+    <form method="POST" action={{ url_for('carupdate' , idi = car._id ) }} >
+
+  <div class="row ">
+            <input type="text" class="form-control" value="{{ car.chassi }}" name="chassi" />
+            </div>
+
+            <div class="row ">
+              <input type="text" class="form-control" value="{{ car.modelo }}" name="modelo"/>
+            </div>
+
+            <div class="row ">
+              <input type="text" class="form-control" value="{{ car.quilometragem }}" name="quilometragem"/>
+            </div>
+
+            <div class="row ">
+              <input type="text" class="form-control" value="{{ car.tipocomb }}" name="tipocomb"/>
+            </div>
+
+            <div class="row ">
+              <input type="text" class="form-control" value="{{ car.kmlitro }}" name="kmlitro"/>
+            </div>
+
+            <div class="row ">
+              <input type="date" class="form-control" value="{{ car.revisao }}" name="revisao"/>
+            </div>
+
+            <input type="hidden" value = "{{ usuario }}" name="author"/>
+            <div class="row ">
+            <button type="submit" class="btn btn-primary">Alterar</button>
+            </div>
+
+    </form>
+</div>
+
+
+
+{% endblock %}

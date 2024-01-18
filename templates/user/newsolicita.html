@@ -1,0 +1,81 @@
+{% extends "usermain.html" %}
+
+
+{% block maincss %}
+
+<link rel="stylesheet" href="../static/css/pages/solicita.css" >
+{% endblock %}
+
+{% block main2 %}
+
+<div class="container">
+  <div class="row">
+    <div class="col col-desktop-12 title">
+      <h2>Solicitações</h2>
+
+      <h3>Peencha o Formulário</h3>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row ">
+    <div class="col col-desktop-12 " align="center">
+
+    <form method="POST" action={{ url_for('newsolicita' , car = car , usuario = usuario) }} >
+
+
+
+  <div class="row ">
+    <p>Carro Escolhido:</p>
+            <input type="text" class="form-control" value="{{ car }}" name="placa" />
+            </div>
+
+            <div class="row ">
+                <p>Destino:</p>
+              <input type="text" class="form-control" name="destino" placeholder="Destino"/>
+            </div>
+
+            <div class="row ">
+              <p>Data Inicial:</p>
+              <input type="date" class="form-control" name="datainicial" placeholder="Data inicial"/>
+            </div>
+
+            <div class="row ">
+                <p>Data Final:</p>
+              <input type="date" class="form-control" name="datafinal"placeholder="Data Final"/>
+            </div>
+
+            <div class="row ">
+              <p>Hora Inicial</p>
+              <input type="time" class="form-control" name="horainicial" placeholder="Hora Inicial" />
+            </div>
+
+            <div class="row ">
+              <p>Hora Final</p>
+              <input type="time" class="form-control" name="horafinal" placeholder="Hora Final"/>
+            </div>
+
+            <input type="hidden" value = "{{ usuario }}" name="author"/>
+
+
+            <div class="row ">
+            <button type="submit" class="btn btn-primary">Solicitar</button>
+            </div>
+
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

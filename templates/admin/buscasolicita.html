@@ -1,0 +1,90 @@
+{% extends "operadormain.html" %}
+{% block maincss %}
+
+
+<link rel="stylesheet" href="../static/css/pages/user.css">
+
+{% endblock %}
+
+
+
+
+{% block main %}
+<div class="container">
+<h3 id="identifica">Usuário(a)...: {{ usuario }} </h3>
+</div>
+
+
+
+
+
+{% block main2 %}
+<div class="container">
+<h3>Solicitações Pendentes</h3>
+</div>
+
+
+<div class="container">
+<div class="row">
+
+
+
+<div class="col col-desktop-12" table>
+
+  <table id="customers">
+    <tr>
+      <th>Nome</th>
+      <th>Placa</th>
+      <th>Destino</th>
+      <th>Data Inicial</th>
+      <th>Data Final</th>
+      <th>Hora Inicial</th>
+      <th>Hora Final</th>
+      <th>Status</th>
+      <th>Aprovar ?</th>
+    </tr>
+    {% for item in lista %}
+    <tr>
+      <td>{{ item.author }}</td>
+      <td>{{ item.placa }}</td>
+      <td>{{ item.destino }}</td>
+      <td>{{ item.datainicial }}</td>
+      <td>{{ item.datafinal }}</td>
+      <td>{{ item.horainicial }}</td>
+      <td>{{ item.horafinal }}</td>
+      <td>{{ item.status }}</td>
+      <td>
+        <form action={{ url_for('aprova' , idi = item._id , usuario = usuario )}} method="post">
+          <input type="submit" name="" value="Sim">
+        </form>
+        <form action={{ url_for('reprovado' , idi = item._id, usuario = usuario  )}} method="post">
+          <input type="submit" name="" value="Não">
+        </form>
+
+      </td>
+
+
+    </tr>
+    {% endfor %}
+
+
+
+  </table>
+
+
+
+
+
+
+
+</div>
+</div>
+<div>
+{% endblock %}
+
+
+
+
+
+
+{% endblock %}

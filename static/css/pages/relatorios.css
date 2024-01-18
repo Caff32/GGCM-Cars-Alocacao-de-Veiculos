@@ -1,0 +1,57 @@
+@import url('../master.css');
+
+
+
+
+.title{
+  padding: 15px;
+}
+.login , .cadastro{
+  margin-top: 60px;
+  margin-bottom: 60px;
+  text-align: center;
+
+  height: 150px;
+
+}
+
+#identifica{
+  text-align: right;
+}
+
+
+
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 50px;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 6px;
+
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+#table{
+
+  margin-top: 20px;
+}
+.form{
+  margin-left: 10px;
+  margin-bottom: 10px;
+}

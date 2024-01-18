@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Empresa</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="../static/css/master.css">
+
+      {% block maincss %}
+
+      {% endblock %}
+
+
+
+</head>
+
+  <body>
+
+    <header id="header" >
+      <div class="container">
+      <div class="row">
+        <div class="col col-desktop-3 col-6">
+          <a href="/" id="logo"><img src="../static/images/logo2.PNG" alt="Logo da empresa"></a>
+        </div>
+        {% block nav %}
+
+            {% endblock %}
+        </div>
+      </div>
+
+    </div>
+
+    </header>
+
+    <main>
+
+      {% block main %}{% endblock %}
+
+
+
+
+
+    </main>
+    <footer id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col col-offset-desktop-1 col-desktop-3 ">
+            <p><a href=""><img src="images/logo.png" alt="Logo da Empresa"></a></p>
+
+            <p>Gerencie seus veículos de uma forma rápida e prática. Acompanhe suas solicitações e gere relatórios de viagens</p>
+          </div>
+            <div class="col col-offset-desktop-1 col-desktop-2 col-2">
+              <h3>Menu</h3>
+              <nav>
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="quem-somos.html">Quem Somos</a></li>
+                  <li><a href="clientes.html">Clientes</a></li>
+                  <li><a href="equipe.html">Equipe</a></li>
+                  <li><a href="contatos.html">Contato</a></li>
+                </ul>
+              </nav>
+
+            </div>
+            <div class="col col-desktop-3 social col-4">
+              <a href=""><img src="../static/images/social-facebook.png" alt=""></a>
+               <a href=""><img src="../static/images/social-twitter.png" alt=""></a>
+               <a href=""><img src="../static/images/social-youtube.png" alt=""></a>
+            </div>
+
+        </div>
+      </div>
+
+
+    </footer>
+
+    <div class="rodape">
+      <div class="low">
+        <div class="col-desktop-12">
+          <p>&copy; Empresa- 2017 - Todos Direitos Reservados</p>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
